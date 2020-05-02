@@ -8,6 +8,7 @@ public class SwipeTapDetect : MonoBehaviour
     public event Action OnRightSwipe;
     public event Action OnLeftSwipe;
     public event Action OnTap;
+    public event Action OnDownSwipe;
 
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
@@ -21,7 +22,7 @@ public class SwipeTapDetect : MonoBehaviour
             Debug.Log("Left");
             OnLeftSwipe?.Invoke();
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W))
         {
             Debug.Log("Tap");
             OnTap?.Invoke();
@@ -30,6 +31,11 @@ public class SwipeTapDetect : MonoBehaviour
         {
             Debug.Log("Right");
             OnRightSwipe?.Invoke();
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            Debug.Log("Down");
+            OnDownSwipe?.Invoke();
         }
 #endif
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)

@@ -11,11 +11,13 @@ namespace Tetris.GameModule
         public event Action<int> EndGame;
 
         private IGameUIController gameUIController = new GameUIController();
-
+        private Spawner spawner;
+        private GroupController groupController;
 
         public void Init()
         {
             gameUIController.Init();
+            spawner = GameObject.Instantiate(Resources.Load<Spawner>(GameData.SPAWNER_PREFAB_PATH));
         }
 
         public void PauseGame()
@@ -30,7 +32,7 @@ namespace Tetris.GameModule
 
         public void StartGame()
         {
-            throw new NotImplementedException();
+            spawner.SpawnNext();
         }
     }
 }

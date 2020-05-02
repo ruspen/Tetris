@@ -7,9 +7,7 @@ namespace Tetris.GameModule
 {
     public class Playfield : MonoBehaviour
     {
-        public static int w = 10;
-        public static int h = 20;
-        public static Transform[,] grid = new Transform[w, h];
+        public static Transform[,] grid = new Transform[GameData.GRID_WIDTH, GameData.GRID_HEIGHT];
 
 
         public static Vector2 RoundVec2(Vector2 v)
@@ -19,12 +17,12 @@ namespace Tetris.GameModule
 
         public static bool InsideBorder(Vector2 pos)
         {
-            return ((int)pos.x >= 0 && (int)pos.x < w && (int)pos.y >= 0);
+            return ((int)pos.x >= 0 && (int)pos.x < GameData.GRID_WIDTH && (int)pos.y >= 0);
         }
 
         public static void DeleteRow(int y)
         {
-            for (int x = 0; x < w; ++x)
+            for (int x = 0; x < GameData.GRID_WIDTH; ++x)
             {
                 Destroy(grid[x, y].gameObject);
                 grid[x, y] = null;
@@ -33,7 +31,7 @@ namespace Tetris.GameModule
 
         public static void DecreaseRow(int y)
         {
-            for (int x = 0; x < w; ++x)
+            for (int x = 0; x < GameData.GRID_WIDTH; ++x)
             {
                 if (grid[x, y] != null)
                 {
@@ -49,7 +47,7 @@ namespace Tetris.GameModule
 
         public static bool IsRowFull(int y)
         {
-            for (int x = 0; x < w; ++x)
+            for (int x = 0; x < GameData.GRID_WIDTH; ++x)
                 if (grid[x, y] == null)
                     return false;
             return true;
@@ -57,13 +55,13 @@ namespace Tetris.GameModule
 
         public static void DecreaseRowsAbove(int y)
         {
-            for (int i = y; i < h; ++i)
+            for (int i = y; i < GameData.GRID_HEIGHT; ++i)
                 DecreaseRow(i);
         }
 
         public static void DeleteFullRows()
         {
-            for (int y = 0; y < h; ++y)
+            for (int y = 0; y < GameData.GRID_HEIGHT; ++y)
             {
                 if (IsRowFull(y))
                 {

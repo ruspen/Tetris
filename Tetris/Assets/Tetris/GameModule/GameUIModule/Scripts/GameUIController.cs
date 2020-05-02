@@ -9,7 +9,8 @@ namespace Tetris.GameModule.GameUIModule
     {
         public event Action OnRightClick;
         public event Action OnLeftClick;
-        public event Action OnTapClick;
+        public event Action OnUpClick;
+        public event Action OnDownClick;
 
         private SwipeTapDetect swipeTapDetect;
         public void Init()
@@ -31,7 +32,11 @@ namespace Tetris.GameModule.GameUIModule
             };
             swipeTapDetect.OnTap += () =>
             {
-                OnTapClick?.Invoke();
+                OnUpClick?.Invoke();
+            };
+            swipeTapDetect.OnDownSwipe += () =>
+            {
+                OnDownClick?.Invoke();
             };
         }
     }

@@ -64,7 +64,7 @@ namespace Tetris.SceneModules.Game
 
         private void BackGame()
         {
-            SceneManager.LoadScene(GameData.MAINMENU_SCENE_NAME);
+            SceneManager.LoadScene(GlobalModule.GameData.MAINMENU_SCENE_NAME);
         }
     }
 }

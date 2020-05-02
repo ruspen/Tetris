@@ -9,7 +9,8 @@ namespace Tetris.GameModule.GameUIModule
     {
         event Action OnRightClick;
         event Action OnLeftClick;
-        event Action OnTapClick;
+        event Action OnUpClick;
+        event Action OnDownClick;
 
         void Init();
         

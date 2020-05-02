@@ -9,25 +9,15 @@ namespace Tetris.GameModule
         public GameObject[] Groups;
 
 
-        public void SpawnNext()
+        public Transform SpawnNext()
         {
             int i = Random.Range(0, Groups.Length);
 
             // Spawn Group at current Position
-            Instantiate(Groups[i], transform.position, Quaternion.identity);
+            GameObject gameObject = Instantiate(Groups[i], transform.position, Quaternion.identity);
+            return gameObject.transform;
         }
 
-
-        void Start()
-        {
-            SpawnNext();
-        }
-
-        
-        void Update()
-        {
-
-        }
     }
 }
 
