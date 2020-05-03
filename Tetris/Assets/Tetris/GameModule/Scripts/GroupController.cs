@@ -14,7 +14,7 @@ namespace Tetris.GameModule
         // Time since last gravity tick
         private float lastFall = 0;
         private bool isPlaing = false;
-        // Start is called before the first frame update
+
 
         public void MoveLeft()
         {
@@ -121,6 +121,7 @@ namespace Tetris.GameModule
             this.isPlaing = isPlaing;
         }
 
+
         // Update is called once per frame
         void Update()
         {
@@ -135,7 +136,8 @@ namespace Tetris.GameModule
             
         }
 
-        bool IsValidGridPos()
+
+        private bool IsValidGridPos()
         {
             foreach (Transform child in currentGroupTransform)
             {
@@ -153,7 +155,7 @@ namespace Tetris.GameModule
             return true;
         }
 
-        void UpdateGrid()
+        private void UpdateGrid()
         {
             // Remove old children from grid
             for (int y = 0; y < GameData.GRID_HEIGHT; ++y)

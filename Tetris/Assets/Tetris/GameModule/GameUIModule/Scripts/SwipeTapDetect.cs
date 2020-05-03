@@ -7,14 +7,18 @@ namespace Tetris.GameModule.GameUIModule
 {
     public class SwipeTapDetect : MonoBehaviour
     {
+        #region Main inform events
         public event Action OnRightSwipe;
         public event Action OnLeftSwipe;
         public event Action OnUpSwipe;
         public event Action OnDownSwipe;
+        #endregion
 
+        #region Detection parameters
         private Vector2 startTouchPosition;
         private Vector2 endTouchPosition;
         private float minDistanceForSwipe = 20f;
+        #endregion
 
 
         void Update()
@@ -41,6 +45,7 @@ namespace Tetris.GameModule.GameUIModule
                 SendSwipe(SwipeDirection.Down);
             }
 #endif
+            #region Detect start and end fingers position
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 startTouchPosition = Input.GetTouch(0).position;
@@ -51,14 +56,14 @@ namespace Tetris.GameModule.GameUIModule
                 endTouchPosition = Input.GetTouch(0).position;
                 DetectSwipe();
             }
-            
+            #endregion
+
         }
 
         private float VerticalMovementDistance()
         {
             return Mathf.Abs(startTouchPosition.y - endTouchPosition.y);
         }
-
         private float HorizontalMovementDistance()
         {
             return Mathf.Abs(startTouchPosition.x - endTouchPosition.x);

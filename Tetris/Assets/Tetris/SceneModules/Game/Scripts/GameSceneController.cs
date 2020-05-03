@@ -27,20 +27,23 @@ namespace Tetris.SceneModules.Game
             Unsubscribe();
         }
 
-
         private void Subscribe()
         {
+            //Subscribe main ui buttons
             uiController.OnPauseClick += PauseGame;
             uiController.OnPlayClick += PlayGame;
             uiController.OnBackClick += BackGame;
+            //Subscribe game informations
             gameController.EndGame += EndGame;
         }
 
         private void Unsubscribe()
         {
+            //Unsubscribe main ui buttons
             uiController.OnPauseClick -= PauseGame;
             uiController.OnPlayClick -= PlayGame;
             uiController.OnBackClick -= BackGame;
+            //Unsubscribe game informations
             gameController.EndGame -= EndGame;
         }
 

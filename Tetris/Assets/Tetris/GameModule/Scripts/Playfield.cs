@@ -7,8 +7,10 @@ namespace Tetris.GameModule
 {
     public class Playfield : MonoBehaviour
     {
+        #region Events about manipulated with rows
         public static event Action DeletedRow;
         public static event Action DeletedFullRows;
+        #endregion
 
         public static Transform[,] grid = new Transform[GameData.GRID_WIDTH, GameData.GRID_HEIGHT];
 

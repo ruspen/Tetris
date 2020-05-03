@@ -8,7 +8,7 @@ namespace Tetris.GameModule
     public interface IGameController
     {
         event Action<int> EndGame;
-        void Init();
+        void Init(); // Have to be invoked
         void StartGame();
         void PauseGame();
         void PlayGame();
