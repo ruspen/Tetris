@@ -17,22 +17,22 @@ public class SwipeTapDetect : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log("Left");
             OnLeftSwipe?.Invoke();
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             Debug.Log("Tap");
             OnTap?.Invoke();
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             Debug.Log("Right");
             OnRightSwipe?.Invoke();
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("Down");
             OnDownSwipe?.Invoke();

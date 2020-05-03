@@ -7,6 +7,8 @@ namespace Tetris.GameModule
 {
     public class Playfield : MonoBehaviour
     {
+        public static event Action DeletedRow;
+
         public static Transform[,] grid = new Transform[GameData.GRID_WIDTH, GameData.GRID_HEIGHT];
 
 
@@ -22,6 +24,7 @@ namespace Tetris.GameModule
 
         public static void DeleteRow(int y)
         {
+            DeletedRow?.Invoke();
             for (int x = 0; x < GameData.GRID_WIDTH; ++x)
             {
                 Destroy(grid[x, y].gameObject);

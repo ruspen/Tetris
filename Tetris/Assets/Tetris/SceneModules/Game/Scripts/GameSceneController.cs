@@ -17,13 +17,9 @@ namespace Tetris.SceneModules.Game
 
         void Start()
         {
+            gameController.Init();
             Subscribe();
             StartGame();
-        }
-
-        void Update()
-        {
-            
         }
 
         private void OnDisable()
@@ -37,6 +33,7 @@ namespace Tetris.SceneModules.Game
             uiController.OnPauseClick += PauseGame;
             uiController.OnPlayClick += PlayGame;
             uiController.OnBackClick += BackGame;
+            gameController.EndGame += EndGame;
         }
 
         private void Unsubscribe()
@@ -44,27 +41,32 @@ namespace Tetris.SceneModules.Game
             uiController.OnPauseClick -= PauseGame;
             uiController.OnPlayClick -= PlayGame;
             uiController.OnBackClick -= BackGame;
+            gameController.EndGame -= EndGame;
         }
 
         private void StartGame()
         {
-            gameController.Init();
             gameController.StartGame();
         }
 
         private void PauseGame()
         {
-
+            gameController.PauseGame();
         }
 
         private void PlayGame()
         {
-
+            gameController.PlayGame();
         }
 
         private void BackGame()
         {
             SceneManager.LoadScene(GlobalModule.GameData.MAINMENU_SCENE_NAME);
+        }
+
+        private void EndGame(int score)
+        {
+            uiController.ShowEndGamePanel(score);
         }
     }
 }
