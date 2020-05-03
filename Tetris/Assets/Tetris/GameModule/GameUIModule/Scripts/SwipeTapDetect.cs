@@ -80,12 +80,13 @@ namespace Tetris.GameModule.GameUIModule
             {
                 if (IsHorizontalSwipe())
                 {
-                    SwipeDirection direction = startTouchPosition.x - endTouchPosition.x > 0 ? SwipeDirection.Right : SwipeDirection.Left;
+                    SwipeDirection direction = startTouchPosition.x - endTouchPosition.x > 0 ? SwipeDirection.Left : SwipeDirection.Right;
                     SendSwipe(direction);
                 }
                 else
                 {
-                    SwipeDirection direction = startTouchPosition.y - endTouchPosition.y > 0 ? SwipeDirection.Up : SwipeDirection.Down;
+                    SwipeDirection direction = startTouchPosition.y - endTouchPosition.y > 0 ? SwipeDirection.Down : SwipeDirection.Up;
+                    SendSwipe(direction);
                 }
             }
         }

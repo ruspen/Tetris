@@ -13,9 +13,11 @@ namespace Tetris.GameModule.GameUIModule
         public event Action OnDownClick;
 
         private SwipeTapDetect swipeTapDetect;
+        private Animator scoreInfo;
         public void Init()
         {
             StartSwipeTapDetect();
+            scoreInfo = GameObject.Instantiate(Resources.Load<Animator>(GameUIData.SCORE_INFO_PREFAB_PATH));
         }
 
 
@@ -38,6 +40,11 @@ namespace Tetris.GameModule.GameUIModule
             {
                 OnDownClick?.Invoke();
             };
+        }
+
+        public void ShowNewScore()
+        {
+            scoreInfo.SetTrigger(GameUIData.SCORE_INFO_ACTIVE_TRIGGER);
         }
     }
 }

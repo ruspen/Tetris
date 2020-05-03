@@ -8,6 +8,7 @@ namespace Tetris.GameModule
     public class Playfield : MonoBehaviour
     {
         public static event Action DeletedRow;
+        public static event Action DeletedFullRows;
 
         public static Transform[,] grid = new Transform[GameData.GRID_WIDTH, GameData.GRID_HEIGHT];
 
@@ -64,6 +65,7 @@ namespace Tetris.GameModule
 
         public static void DeleteFullRows()
         {
+            bool deletedRow = false;
             for (int y = 0; y < GameData.GRID_HEIGHT; ++y)
             {
                 if (IsRowFull(y))
@@ -71,8 +73,14 @@ namespace Tetris.GameModule
                     DeleteRow(y);
                     DecreaseRowsAbove(y + 1);
                     --y;
+                    deletedRow = true;
                 }
             }
+            if (deletedRow)
+            {
+                DeletedFullRows?.Invoke();
+            }
+            
         }
 
     }

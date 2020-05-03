@@ -13,6 +13,7 @@ namespace Tetris.GameModule.GameUIModule
         event Action OnDownClick;
 
         void Init();
+        void ShowNewScore();
         
     }
 }

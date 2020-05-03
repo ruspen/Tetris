@@ -36,6 +36,7 @@ namespace Tetris.GameModule
             Transform currentGroup = spawner.SpawnNext();
 
             Playfield.DeletedRow += ScoreIncrease;
+            Playfield.DeletedFullRows += DeleteFullRows;
 
             gameUIController.OnDownClick += groupController.MoveDown;
             gameUIController.OnLeftClick += groupController.MoveLeft;
@@ -48,7 +49,11 @@ namespace Tetris.GameModule
         private void ScoreIncrease()
         {
             GameData.CurrentScore += GameData.SCORE_INCREASE;
+        }
 
+        private void DeleteFullRows()
+        {
+            gameUIController?.ShowNewScore();
         }
 
         private void FinishGroupsMove()
