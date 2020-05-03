@@ -30,7 +30,7 @@ namespace Tetris.GameModule.GameUIModule
             {
                 OnRightClick?.Invoke();
             };
-            swipeTapDetect.OnTap += () =>
+            swipeTapDetect.OnUpSwipe += () =>
             {
                 OnUpClick?.Invoke();
             };

@@ -23,18 +23,12 @@ namespace Tetris.GameModule
 
         public void PauseGame()
         {
-            if (groupController)
-            {
-                groupController.ChangePlaing(false);
-            }
+            groupController?.ChangePlaing(false);
         }
 
         public void PlayGame()
         {
-            if (groupController)
-            {
-                groupController.ChangePlaing(true);
-            }
+            groupController?.ChangePlaing(true);
         }
 
         public void StartGame()
