@@ -28,8 +28,13 @@ Decomposition levels:
 
 # State Machine
 During row deletion, we invoke the visualization of scores. Before the animation works, using the State Machine, we get the data of the current score and change the necessary parameter.
+
 Honestly, this is only to show understanding of the State Machine
+
 Tetris is a simple game that does not need to use a State Machine
+
 The State Machine is used to create additional conditions in the animation settings that have dependent states.
+
 For example, a hero’s animation, in different situations, can cause additional state or change animation parameters inside itself
+
 Animation should not affect the course of the game, as this is a violation of the application architecture.
