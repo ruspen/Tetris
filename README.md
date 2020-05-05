@@ -21,10 +21,10 @@ The module may not have Model ow View if there is no need to use. For example, a
 
 Decomposition levels:
 * 0 Tetris
-* 1 OrbitalityGame.SceneModules (Has a scene controller that activates all the necessary modules)
-* 1 OrbitalityGame.GlobalModule 
-* 1 OrbitalityGame.GameModule (access through IGameController)
-* 2 OrbitalityGame.GameModule.GameUIModule (access through IGameUIController)
+* 1 Tetris.SceneModules (Has a scene controller that activates all the necessary modules)
+* 1 Tetris.GlobalModule 
+* 1 Tetris.GameModule (access through IGameController)
+* 2 Tetris.GameModule.GameUIModule (access through IGameUIController)
 
 # State Machine
 During row deletion, we invoke the visualization of scores. Before the animation works, using the State Machine, we get the data of the current score and change the necessary parameter.
